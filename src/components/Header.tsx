@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container } from '../styles/Header';
+import { Container, Title } from '../styles/Header';
 
 export default function Header() {
-  return <Container>header</Container>;
+  return <Container>Header</Container>;
 }
