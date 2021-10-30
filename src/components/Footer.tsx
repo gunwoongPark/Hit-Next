@@ -1,5 +1,6 @@
 import React from 'react';
+import { Container } from '../styles/Footer';
 
 export default function Footer() {
-  return <div>footer</div>;
+  return <Container>© 2021 Copyright gunwoongPark</Container>;
 }
