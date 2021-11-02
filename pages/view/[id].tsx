@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NextRouter, useRouter } from 'next/router';
 import axios from 'axios';
+import Item from '../../src/components/Item';
 
 export default function Detail() {
   const router: NextRouter = useRouter();
   const id: string | string[] | undefined = router.query.id;
 
+  const [item, setItem] = useState<Object>({});
+
   const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
   const fetchData = () => {
     axios.get(API_URL).then((res) => {
-      console.log(res.data);
+      const { image_link, name, description } = res.data;
+      setItem({ image_link, name, description });
     });
   };
 
@@ -18,5 +22,7 @@ export default function Detail() {
     if (id) fetchData();
   }, [id]);
 
-  return <p>id : {id}</p>;
+  console.log(item);
+
+  return <>{/* <Item item={item} /> */}</>;
 }
