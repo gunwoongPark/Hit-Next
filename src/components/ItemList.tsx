@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { VFC } from 'react';
 import Link from 'next/link';
 import { Container, Item, ItemImage, ItemName, ItemPrice } from '../styles/ItemList';
 
@@ -6,7 +6,7 @@ interface PropType {
   itemList: Array<any>;
 }
 
-export default function ItemList(props: PropType) {
+const ItemList: VFC<PropType> = (props) => {
   const { itemList } = props;
 
   return (
@@ -26,4 +26,6 @@ export default function ItemList(props: PropType) {
       })}
     </Container>
   );
-}
+};
+
+export default ItemList;

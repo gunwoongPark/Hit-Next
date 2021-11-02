@@ -24,4 +24,5 @@ export const Nav = styled.li`
   & + & {
     margin-left: 1.5rem;
   }
+  font-size: 17px;
 `;

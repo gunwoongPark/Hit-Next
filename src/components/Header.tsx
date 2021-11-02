@@ -1,10 +1,15 @@
 import React from 'react';
 import { Container, Nav, NavContainer, Title } from '../styles/Header';
+import Link from 'next/link';
 
 export default function Header() {
   return (
     <Container>
-      <Title>Title</Title>
+      <Link href="/">
+        <a>
+          <Title>Title</Title>
+        </a>
+      </Link>
 
       <NavContainer>
         <Nav>Home</Nav>
