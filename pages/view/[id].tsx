@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NextRouter, useRouter } from 'next/router';
 import axios from 'axios';
 import Item from '../../src/components/Item';
+import Head from 'next/head';
 
 export default function Detail() {
   const router: NextRouter = useRouter();
@@ -27,10 +28,12 @@ export default function Detail() {
     if (id) fetchData();
   }, [id]);
 
-  console.log(item);
-
   return (
     <>
+      <Head>
+        <title>DETAIL | {item.name}</title>
+      </Head>
+
       <Item item={item} />
     </>
   );
