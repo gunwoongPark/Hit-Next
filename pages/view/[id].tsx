@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { VFC } from 'react';
 import axios from 'axios';
 import Item from '../../src/components/Item';
-import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
 interface PropType {
   image_link: string;
@@ -11,7 +11,7 @@ interface PropType {
   price: string;
 }
 
-export default function Detail(props: PropType) {
+const Detail: VFC<PropType> = (props) => {
   const { image_link, name, description, price } = props;
   const item = { image_link, name, description, price };
 
@@ -19,12 +19,12 @@ export default function Detail(props: PropType) {
     <>
       <Head>
         <title>DETAIL | {item.name}</title>
+        <meta name="description" content={item.description} />
       </Head>
-
-      <Item item={item} />
+      {item && <Item item={item} />}
     </>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.params?.id;
@@ -36,3 +36,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: { image_link, name, description, price },
   };
 };
+
+export default Detail;

@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   margin: 0 0 0 1rem;
+  cursor: pointer;
 `;
 
 export const NavContainer = styled.ul`
@@ -25,4 +26,5 @@ export const Nav = styled.li`
     margin-left: 1.5rem;
   }
   font-size: 17px;
+  cursor: pointer;
 `;
