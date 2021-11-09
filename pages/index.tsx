@@ -21,9 +21,10 @@ export default function Home() {
   return (
     <>
       <Head>
+        <meta name="description" content="It's a cosmetics shopping mall."></meta>
         <title>HOME</title>
       </Head>
-      
+
       <ItemList itemList={itemList} />
     </>
   );

@@ -1,32 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { NextRouter, useRouter } from 'next/router';
+import React from 'react';
 import axios from 'axios';
 import Item from '../../src/components/Item';
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
 
-export default function Detail() {
-  const router: NextRouter = useRouter();
-  const id: string | string[] | undefined = router.query.id;
+interface PropType {
+  image_link: string;
+  name: string;
+  description: string;
+  price: string;
+}
 
-  const [item, setItem] = useState<{ image_link: string; name: string; description: string; price: string }>({
-    image_link: '',
-    name: '',
-    description: '',
-    price: '0.00',
-  });
-
-  const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
-  const fetchData = () => {
-    axios.get(API_URL).then((res) => {
-      const { image_link, name, description, price } = res.data;
-      setItem({ image_link, name, description, price });
-    });
-  };
-
-  useEffect(() => {
-    // id를 받아올 때 데이터 fetching
-    if (id) fetchData();
-  }, [id]);
+export default function Detail(props: PropType) {
+  const { image_link, name, description, price } = props;
+  const item = { image_link, name, description, price };
 
   return (
     <>
@@ -38,3 +25,14 @@ export default function Detail() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const id = context.params?.id;
+  const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
+  const res = await axios.get(API_URL);
+  const { image_link, name, description, price } = res.data;
+
+  return {
+    props: { image_link, name, description, price },
+  };
+};
