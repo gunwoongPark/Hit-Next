@@ -9,9 +9,12 @@ export default function Home() {
   const [itemList, setItemList] = useState<Array<any>>([]);
 
   const fetchData = () => {
-    axios.get(API_URL).then((res) => {
-      setItemList(res.data);
-    });
+    axios
+      .get(API_URL)
+      .then((res) => {
+        setItemList(res.data);
+      })
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
