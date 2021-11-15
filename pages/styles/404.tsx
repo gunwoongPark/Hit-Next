@@ -17,4 +17,7 @@ export const ErrorTxtContainer = styled.div`
   align-items: center;
 `;
 
-// export const ImgContainer = styled.img``;
+export const ImgContainer = styled.div`
+  margin: auto;
+  width: 300px;
+`;
