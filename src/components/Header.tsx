@@ -9,7 +9,9 @@ export default function Header() {
       case 'home':
         router.push('/');
         break;
-
+      case 'cart':
+        router.push('/cart');
+        break;
       default:
     }
   };
@@ -19,7 +21,7 @@ export default function Header() {
       <Title onClick={() => goLink('home')}>Title</Title>
       <NavContainer>
         <Nav onClick={() => goLink('home')}>Home</Nav>
-        <Nav>Cart</Nav>
+        <Nav onClick={() => goLink('cart')}>Cart</Nav>
         <Nav>About</Nav>
       </NavContainer>
     </Container>
