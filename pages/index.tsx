@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, VFC } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import ItemList from '../src/components/ItemList';
 
-export default function Home() {
-  const API_URL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+interface PropType {
+  itemList: Array<any>;
+}
 
-  const [itemList, setItemList] = useState<Array<any>>([]);
-
-  const fetchData = () => {
-    axios
-      .get(API_URL)
-      .then((res) => {
-        setItemList(res.data);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+const Home: VFC<PropType> = (props) => {
+  const { itemList } = props;
 
   return (
     <>
@@ -31,4 +20,15 @@ export default function Home() {
       <ItemList itemList={itemList} />
     </>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const API_URL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+  const res = await axios.get(API_URL);
+
+  return {
+    props: { itemList: res.data },
+  };
+};
+
+export default Home;
