@@ -6,8 +6,6 @@ export const Container = styled.div`
   height: calc(100vh - 120px - 60px);
 `;
 
-export const ItemImage = styled.img``;
-
 export const SubContainer = styled.div`
   width: 50%;
   text-align: center;

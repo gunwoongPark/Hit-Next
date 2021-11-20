@@ -1,14 +1,5 @@
 import React, { VFC } from 'react';
-import {
-  BtnContainer,
-  Button,
-  Container,
-  ItemDesc,
-  ItemImage,
-  ItemName,
-  ItemPrice,
-  SubContainer,
-} from '../styles/Item';
+import { BtnContainer, Button, Container, ItemDesc, ItemName, ItemPrice, SubContainer } from '../styles/Item';
 
 type ItemType = {
   image_link: string;
@@ -26,7 +17,7 @@ const Item: VFC<PropType> = (props) => {
   return (
     <Container>
       <SubContainer>
-        <ItemImage src={item.image_link} alt={item.name} />
+        <img src={item.image_link} alt={item.name} />
       </SubContainer>
       <SubContainer style={{ marginRight: '5rem' }}>
         <ItemName>{item.name}</ItemName>
