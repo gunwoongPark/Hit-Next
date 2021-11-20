@@ -1,6 +1,6 @@
 import React, { VFC } from 'react';
 import axios from 'axios';
-import Item from '../../src/components/Item';
+import Item from '../../components/Item';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 

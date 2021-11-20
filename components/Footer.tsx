@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../styles/Footer';
+import { Container } from './styles/Footer';
 import { NextRouter, useRouter } from 'next/router';
 
 export default function Footer() {

@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { BtnContainer, Button, Container, ItemDesc, ItemName, ItemPrice, SubContainer } from '../styles/Item';
+import { BtnContainer, Button, Container, ItemDesc, ItemName, ItemPrice, SubContainer } from './styles/Item';
 
 type ItemType = {
   image_link: string;

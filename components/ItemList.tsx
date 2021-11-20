@@ -1,6 +1,6 @@
 import React, { VFC } from 'react';
 import Link from 'next/link';
-import { Container, Item, ItemImage, ItemName, ItemPrice } from '../styles/ItemList';
+import { Container, Item, ItemImage, ItemName, ItemPrice } from './styles/ItemList';
 
 interface PropType {
   itemList: Array<any>;
@@ -13,7 +13,7 @@ const ItemList: VFC<PropType> = (props) => {
     <Container>
       {itemList.map((item) => {
         return (
-          <Link key={item.id} href={`/view/${item.id}`}>
+          <Link key={item.id} href={`/detail/${item.id}`}>
             <a>
               <Item>
                 <ItemImage src={item.image_link} alt={item.name} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, VFC } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
-import ItemList from '../src/components/ItemList';
+import ItemList from '../components/ItemList';
 
 interface PropType {
   itemList: Array<any>;

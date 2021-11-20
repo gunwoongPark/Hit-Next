@@ -1,8 +1,10 @@
 import React, { VFC } from 'react';
 import axios from 'axios';
-import Item from '../../src/components/Item';
+import Item from '../../components/Item';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Loading from '../../components/Loading';
 
 interface PropType {
   image_link: string;
@@ -12,8 +14,13 @@ interface PropType {
 }
 
 const Detail: VFC<PropType> = (props) => {
+  const router = useRouter();
   const { image_link, name, description, price } = props;
   const item = { image_link, name, description, price };
+
+  if (router.isFallback) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -27,8 +34,15 @@ const Detail: VFC<PropType> = (props) => {
 };
 
 export async function getStaticPaths() {
+  const API_URL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+  const res = await axios.get(API_URL);
+
   return {
-    paths: [{ params: { id: '495' } }, { params: { id: '488' } }, { params: { id: '477' } }, { params: { id: '468' } }],
+    paths: res.data.slice(0, 12).map((item: any) => ({
+      params: {
+        id: item.id.toString(),
+      },
+    })),
     fallback: true,
   };
 }
