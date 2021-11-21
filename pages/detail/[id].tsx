@@ -4,7 +4,7 @@ import Item from '../../components/Item';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Loading from '../../components/loading';
+import Loading from '../../components/Loading';
 
 interface PropType {
   image_link: string;
