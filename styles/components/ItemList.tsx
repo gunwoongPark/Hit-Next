@@ -1,8 +1,16 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
 export const Item = styled.div`
