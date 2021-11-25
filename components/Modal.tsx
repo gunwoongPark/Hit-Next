@@ -1,6 +1,25 @@
-import React from 'react';
-import { Container } from '../styles/components/Modal';
+import React, { SetStateAction, Dispatch } from 'react';
+import {
+  Container,
+  Title,
+  ButtonContainer,
+  Button,
+} from '../styles/components/Modal';
 
-export default function Modal() {
-  return <Container>hi i'm modal!</Container>;
+interface PropType {
+  setModal: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Modal({ setModal }: PropType) {
+  return (
+    <Container>
+      <Title>{`The item  is in the shopping basket.`}</Title>
+      <ButtonContainer>
+        <Button btnType={'goCart'}>Go Cart</Button>
+        <Button btnType={'cancel'} onClick={() => setModal(false)}>
+          Cancel
+        </Button>
+      </ButtonContainer>
+    </Container>
+  );
 }

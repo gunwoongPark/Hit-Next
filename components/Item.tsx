@@ -48,7 +48,7 @@ const Item: VFC<PropType> = (props) => {
           </BtnContainer>
         </SubContainer>
       </Container>
-      {modal && <Modal />}
+      {modal && <Modal setModal={setModal} />}
     </>
   );
 };
