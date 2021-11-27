@@ -9,10 +9,10 @@ export const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 `;
 
 export const Title = styled.h1`
@@ -46,4 +46,14 @@ export const Button = styled.button`
           background: #ced4da;
           color: black;
         `};
+`;
+
+export const Dim = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 1;
 `;
