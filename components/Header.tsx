@@ -33,7 +33,7 @@ export default function Header() {
       <NavContainer>
         <Nav onClick={() => goLink('home')}>Home</Nav>
         <Nav onClick={() => goLink('cart')}>Cart</Nav>
-        <Nav onClick={() => goLink('admin')}>Admin</Nav>
+        {/* <Nav onClick={() => goLink('admin')}>Admin</Nav> */}
         <Nav onClick={() => goLink('about')}>About</Nav>
       </NavContainer>
     </Container>
